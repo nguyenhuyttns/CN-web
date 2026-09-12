@@ -1,0 +1,775 @@
+/* ==========================================================================
+   Profile Card Design System - Nguyễn Đức Huy
+   Modern, Clean, Dual-Layout:
+   - Desktop (Mặc định): Layout Ngang (Horizontal 2-Column Card)
+   - Mobile (F12 / Responsive <= 900px): Layout Dọc (Vertical Card)
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-dark: #090d16;
+  --bg-card: rgba(17, 24, 39, 0.88);
+  --bg-card-border: rgba(255, 255, 255, 0.08);
+  --bg-card-hover-border: rgba(99, 102, 241, 0.4);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  /* Accent Gradients & Colors */
+  --primary-gradient: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #6366f1 100%);
+  --banner-gradient: linear-gradient(135deg, #1e1b4b 0%, #0f172a 40%, #042f2e 100%);
+  --accent-cyan: #06b6d4;
+  --accent-indigo: #6366f1;
+  --accent-emerald: #10b981;
+  --accent-amber: #f59e0b;
+
+  /* Surfaces & Tags */
+  --pill-bg: rgba(255, 255, 255, 0.04);
+  --pill-border: rgba(255, 255, 255, 0.08);
+  --card-subtle-bg: rgba(255, 255, 255, 0.03);
+  --card-subtle-border: rgba(255, 255, 255, 0.06);
+
+  /* Elevation Shadows */
+  --shadow-card: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 45px rgba(99, 102, 241, 0.14);
+  --shadow-avatar: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+  /* Typography */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Transitions */
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient Background Lights */
+.glow-sphere {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  animation: floatAmbient 12s ease-in-out infinite alternate;
+}
+
+.glow-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(99, 102, 241, 0) 70%);
+  top: -100px;
+  right: -80px;
+}
+
+.glow-2 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0) 70%);
+  bottom: -120px;
+  left: -100px;
+  animation-delay: -6s;
+}
+
+@keyframes floatAmbient {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(35px, 25px) scale(1.08); }
+}
+
+/* Card Container */
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1060px; /* Chiều rộng tối ưu cho Layout Ngang */
+  transition: var(--transition-smooth);
+}
+
+.profile-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+.profile-card:hover {
+  border-color: var(--bg-card-hover-border);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(99, 102, 241, 0.22);
+}
+
+/* ==========================================================================
+   DESKTOP DEFAULT: LAYOUT NGANG (2 CỘT)
+   ========================================================================== */
+
+@media (min-width: 901px) {
+  .profile-card {
+    display: grid;
+    grid-template-columns: 375px 1fr;
+    min-height: 580px;
+  }
+
+  /* Cột Trái */
+  .card-left {
+    background: rgba(15, 23, 42, 0.55);
+    border-right: 1px solid var(--bg-card-border);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .card-left .card-banner {
+    height: 125px;
+  }
+
+  .card-left .avatar-section {
+    padding: 0 1.75rem;
+    margin-top: -60px;
+  }
+
+  .card-left .profile-head {
+    padding: 1.25rem 1.75rem 0.5rem 1.75rem;
+  }
+
+  .card-left .info-badges {
+    padding: 0.5rem 1.75rem 1.25rem 1.75rem;
+  }
+
+  .card-left .action-buttons {
+    padding: 0 1.75rem 1.5rem 1.75rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card-left .social-footer {
+    margin-top: auto;
+    padding: 1.25rem 1.75rem 1.75rem 1.75rem;
+  }
+
+  /* Cột Phải */
+  .card-right {
+    padding: 2.5rem 2.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.75rem;
+  }
+
+  .bio-section {
+    margin-bottom: 0;
+  }
+
+  .bio-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .bio-badge {
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    color: #a5b4fc;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.2rem 0.65rem;
+    border-radius: 6px;
+  }
+
+  .bio-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .profile-bio {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 1.25rem;
+  }
+
+  .experience-section {
+    margin-bottom: 0;
+  }
+
+  .skills-section {
+    margin-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   CÁC THÀNH PHẦN CHI TIẾT (SHARED STYLES)
+   ========================================================================== */
+
+/* Banner */
+.card-banner {
+  background: var(--banner-gradient);
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem;
+}
+
+.banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(10px);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-emerald);
+  border-radius: 50%;
+  position: relative;
+}
+
+.status-dot::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.7;
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Avatar */
+.avatar-section {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.avatar-ring {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--primary-gradient);
+  box-shadow: var(--shadow-avatar);
+  position: relative;
+  transition: transform 0.35s ease;
+}
+
+.profile-card:hover .avatar-ring {
+  transform: scale(1.04);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--bg-dark);
+}
+
+/* User Names & Roles */
+.user-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.user-role {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role-icon {
+  display: inline-flex;
+  color: var(--accent-cyan);
+  -webkit-text-fill-color: initial;
+}
+
+/* Info Badges */
+.info-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.info-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  padding: 0.38rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.info-pill svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.info-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Section Headings */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.01em;
+}
+
+.section-title svg {
+  color: var(--accent-indigo);
+  flex-shrink: 0;
+}
+
+/* Experience Cards */
+.exp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.exp-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--card-subtle-bg);
+  border: 1px solid var(--card-subtle-border);
+  border-radius: 14px;
+  padding: 0.95rem 1.15rem;
+  transition: var(--transition-smooth);
+}
+
+.exp-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-2px);
+}
+
+.exp-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-box {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.erp-box {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--accent-indigo);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.exp-info {
+  flex: 1;
+}
+
+.exp-role {
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.exp-desc {
+  font-size: 0.835rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Skill Tags */
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.skill-tag:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.skill-tag.highlighted {
+  background: rgba(99, 102, 241, 0.12);
+  color: #a5b4fc;
+  border-color: rgba(99, 102, 241, 0.3);
+  font-weight: 600;
+}
+
+.skill-tag.highlighted:hover {
+  background: rgba(99, 102, 241, 0.22);
+  color: #fff;
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Social Footer */
+.social-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.social-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.social-link:hover {
+  background: rgba(99, 102, 241, 0.15);
+  color: #ffffff;
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.copyright-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Toast Notification */
+.toast-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 9999px;
+  padding: 0.75rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.toast-container svg {
+  color: var(--accent-emerald);
+  flex-shrink: 0;
+}
+
+.toast-container.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE (F12 HOẶC MÀN HÌNH <= 900px):
+   LAYOUT DỌC ĐẦY ĐỦ NHƯ HIỆN TẠI
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  body {
+    padding: 1.5rem 1rem;
+    align-items: flex-start;
+  }
+
+  .main-wrapper {
+    max-width: 560px;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+  }
+
+  /* Sử dụng display: contents để các phần tử dàn theo thứ tự dọc tự nhiên */
+  .card-left, 
+  .card-right {
+    display: contents;
+  }
+
+  /* Thứ tự hiển thị layout dọc khi F12 xem mobile */
+  .card-banner {
+    order: 1;
+    height: 130px;
+    padding: 1rem 1.25rem;
+  }
+
+  .avatar-section {
+    order: 2;
+    padding: 0 1.5rem;
+    margin-top: -60px;
+  }
+
+  .avatar-ring {
+    width: 106px;
+    height: 106px;
+  }
+
+  .profile-head {
+    order: 3;
+    padding: 1.25rem 1.5rem 0.6rem 1.5rem;
+  }
+
+  .user-name {
+    font-size: 1.6rem;
+  }
+
+  .user-role {
+    font-size: 0.925rem;
+  }
+
+  .info-badges {
+    order: 4;
+    padding: 0 1.5rem 1.25rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .info-pill {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  /* Bio chuyển lên sau info badges trong layout dọc */
+  .bio-section {
+    order: 5;
+    padding: 0 1.5rem 1.25rem 1.5rem;
+  }
+
+  .bio-header {
+    display: none; /* Ẩn bớt tiêu đề phụ trên mobile để gọn gàng */
+  }
+
+  .profile-bio {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Kinh nghiệm */
+  .experience-section {
+    order: 6;
+    padding: 0 1.5rem 1.25rem 1.5rem;
+  }
+
+  .exp-card {
+    padding: 0.85rem 1rem;
+  }
+
+  /* Kỹ năng */
+  .skills-section {
+    order: 7;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  /* Nút hành động */
+  .action-buttons {
+    order: 8;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  /* Footer mạng xã hội */
+  .social-footer {
+    order: 9;
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  .card-banner {
+    height: 110px;
+  }
+
+  .banner-badge {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.65rem;
+  }
+
+  .avatar-ring {
+    width: 96px;
+    height: 96px;
+  }
+
+  .avatar-section {
+    margin-top: -50px;
+    padding: 0 1.25rem;
+  }
+
+  .profile-head,
+  .info-badges,
+  .bio-section,
+  .experience-section,
+  .skills-section,
+  .action-buttons,
+  .social-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .user-name {
+    font-size: 1.45rem;
+  }
+}
