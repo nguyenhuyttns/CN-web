@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>HND Badminton - Thế Giới Phụ Kiện & Dụng Cụ Cầu Lông Chính Hãng</title>
+  <meta name="title" content="HND Badminton - Thế Giới Phụ Kiện & Dụng Cụ Cầu Lông Chính Hãng">
+  <meta name="description" content="Chuyên cung cấp vợt cầu lông, giày, quần áo, quả cầu lông và phụ kiện chính hãng Yonex, Victor, Lining, Mizuno. Dịch vụ căng vợt điện tử chuẩn thi đấu.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="badge-pill">Ưu đãi</span>
+        <span>Miễn phí căng cước điện tử & cuốn cán cho mọi đơn vợt trong tháng này!</span>
+      </div>
+      <div class="top-bar-right">
+        <span>Hotline: <strong>0988.123.456</strong></span>
+        <span class="divider">|</span>
+        <span>Hệ thống 3 showroom toàn quốc</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="#" class="brand-logo" aria-label="HND Badminton Trang Chủ">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Badminton Racket / Shuttlecock Modern Mark -->
+            <circle cx="12" cy="7" r="5"></circle>
+            <path d="M12 12v10"></path>
+            <path d="M9 19h6"></path>
+            <circle cx="12" cy="7" r="2" stroke-dasharray="2 2"></circle>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">HND <span>BADMINTON</span></span>
+          <span class="logo-subtitle">Chuyên Cầu Lông Chính Hãng</span>
+        </div>
+      </a>
+
+      <!-- Search Bar (Desktop) -->
+      <div class="header-search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Tìm vợt, giày, áo, quả cầu lông..." autocomplete="off">
+        <button type="button" id="clearSearchBtn" class="clear-btn" aria-label="Xóa tìm kiếm" hidden>&times;</button>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Trang chủ</a></li>
+          <li><a href="#products" class="nav-link">Sản phẩm</a></li>
+          <li><a href="#brands" class="nav-link">Thương hiệu</a></li>
+          <li><a href="#services" class="nav-link">Dịch vụ đan vợt</a></li>
+          <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="header-actions">
+        <button class="action-btn cart-btn" id="cartBtn" aria-label="Giỏ hàng">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button (Visible on F12 / Mobile) -->
+        <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Mở Menu điều hướng">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Search Bar (Appears under header in mobile view) -->
+    <div class="mobile-search-wrapper">
+      <div class="mobile-search-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="mobileSearchInput" placeholder="Tìm kiếm sản phẩm...">
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="drawer-logo">HND <span>BADMINTON</span></div>
+      <button class="close-drawer-btn" id="closeDrawerBtn">&times;</button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#hero" class="drawer-link">Trang chủ</a>
+      <a href="#products" class="drawer-link">Tất cả sản phẩm</a>
+      <a href="#brands" class="drawer-link">Thương hiệu</a>
+      <a href="#services" class="drawer-link">Dịch vụ căng cước</a>
+      <a href="#contact" class="drawer-link">Tư vấn & Liên hệ</a>
+    </nav>
+    <div class="drawer-contact">
+      <p>📞 Hotline hỗ trợ: <strong>0988.123.456</strong></p>
+      <p>📍 CS1: 182 Lê Thanh Nghị, Hai Bà Trưng, Hà Nội</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Bộ sưu tập Cầu Lông 2026 Mới Nhất</span>
+          </div>
+          <h1 class="hero-title">
+            Nâng Tầm Từng Cú Đập Cầu Với <span class="highlight">HND Badminton</span>
+          </h1>
+          <p class="hero-description">
+            Đại lý phân phối chính hãng các dòng vợt thi đấu cao cấp, trang phục thể thao thoáng khí, ống cầu đạt chuẩn quốc tế từ các thương hiệu hàng đầu: Yonex, Victor, Lining, Mizuno.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">
+              <span>Xem Ngay Sản Phẩm</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#services" class="btn btn-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <span>Dịch Vụ Đan Vợt Chuẩn</span>
+            </a>
+          </div>
+
+          <!-- Quick Statistics -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Chính hãng cam kết</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Mẫu mã đa dạng</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Tư vấn tay vợt</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-showcase">
+            <img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=900&q=80" alt="Vợt và quả cầu lông thể thao" class="hero-img" loading="eager" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'480\' viewBox=\'0 0 600 480\'><rect fill=\'%230f172a\' width=\'600\' height=\'480\'/><circle cx=\'300\' cy=\'200\' r=\'80\' fill=\'none\' stroke=\'%230284c7\' stroke-width=\'8\'/><line x1=\'300\' y1=\'280\' x2=\'300\' y2=\'400\' stroke=\'%230284c7\' stroke-width=\'8\'/><text x=\'300\' y=\'440\' font-family=\'sans-serif\' font-size=\'22\' font-weight=\'bold\' fill=\'%23ffffff\' text-anchor=\'middle\'>HND BADMINTON</text></svg>';">
+            <div class="hero-card-overlay"></div>
+            <!-- Floating Feature Pills -->
+            <div class="floating-pill pill-top">
+              <span class="pill-icon">🏸</span>
+              <div class="pill-text">
+                <strong>Đan Vợt Máy Điện Tử</strong>
+                <small>Chuẩn 4 nút BWF</small>
+              </div>
+            </div>
+            <div class="floating-pill pill-bottom">
+              <span class="pill-icon">⚡</span>
+              <div class="pill-text">
+                <strong>Giao Hỏa Tốc 2H</strong>
+                <small>Nội thành Hà Nội & TP.HCM</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE PROPOSITIONS (USP SECTION) -->
+    <section class="features-bar">
+      <div class="container">
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon bg-blue">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Cam Kết 100% Chính Hãng</h4>
+              <p>Đền tiền gấp 10 lần nếu phát hiện hàng giả, hàng nhái</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon bg-teal">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Căng Cước Máy Điện Tử</h4>
+              <p>Chuẩn từng lạng lực căng, bảo vệ khung vợt tối đa</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon bg-indigo">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Giao Hàng & Thu Tiền Tận Nơi</h4>
+              <p>Kiểm tra hàng trước khi thanh toán trên toàn quốc</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon bg-amber">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+            </div>
+            <div class="feature-text">
+              <h4>Bảo Hành Uy Tín 90 Ngày</h4>
+              <p>1 đổi 1 nhanh chóng nếu lỗi do nhà sản xuất</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND SHOWCASE SECTION -->
+    <section class="brands-section" id="brands">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">Thương Hiệu Hàng Đầu</span>
+          <h2 class="section-title">Các Hãng Cầu Lông Được Ưa Chuộng Nhất</h2>
+          <p class="section-sub">Chúng tôi phân phối ủy quyền đầy đủ các dòng sản phẩm từ 4 thương hiệu đẳng cấp thế giới</p>
+        </div>
+
+        <div class="brand-cards-grid">
+          <!-- Yonex -->
+          <div class="brand-show-card" data-brand="Yonex">
+            <div class="brand-logo-wrap">
+              <span class="brand-text-logo yonex-color">YONEX</span>
+            </div>
+            <h3>Yonex Nhật Bản</h3>
+            <p>Biểu tượng thống trị cầu lông thế giới với các dòng Astrox, Nanoflare, Arcsaber đỉnh cao.</p>
+            <button class="filter-by-brand-btn" data-brand="Yonex">Xem sản phẩm Yonex &rarr;</button>
+          </div>
+
+          <!-- Victor -->
+          <div class="brand-show-card" data-brand="Victor">
+            <div class="brand-logo-wrap">
+              <span class="brand-text-logo victor-color">VICTOR</span>
+            </div>
+            <h3>Victor Đài Loan</h3>
+            <p>Sức mạnh công phá với Thruster, DriveX, Auraspeed được các tuyển thủ chuyên nghiệp tin dùng.</p>
+            <button class="filter-by-brand-btn" data-brand="Victor">Xem sản phẩm Victor &rarr;</button>
+          </div>
+
+          <!-- Lining -->
+          <div class="brand-show-card" data-brand="Lining">
+            <div class="brand-logo-wrap">
+              <span class="brand-text-logo lining-color">LI-NING</span>
+            </div>
+            <h3>Li-Ning Nội Địa</h3>
+            <p>Công nghệ khí động học vượt trội cùng các dòng Aeronaut, Axforce, Tectonic tinh tế.</p>
+            <button class="filter-by-brand-btn" data-brand="Lining">Xem sản phẩm Li-Ning &rarr;</button>
+          </div>
+
+          <!-- Mizuno -->
+          <div class="brand-show-card" data-brand="Mizuno">
+            <div class="brand-logo-wrap">
+              <span class="brand-text-logo mizuno-color">MIZUNO</span>
+            </div>
+            <h3>Mizuno Nhật Bản</h3>
+            <p>Nổi tiếng với độ hoàn thiện thủ công cực cao, độ bền xuất sắc và cảm giác cầu siêu chân thực.</p>
+            <button class="filter-by-brand-btn" data-brand="Mizuno">Xem sản phẩm Mizuno &rarr;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS CATALOG SECTION -->
+    <section class="products-section" id="products">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">Kho Hàng Phong Phú</span>
+          <h2 class="section-title">Bộ Sưu Tập Phụ Kiện & Dụng Cụ Cầu Lông</h2>
+          <p class="section-sub">Đầy đủ thông số chi tiết (Trọng lượng, cán vợt, độ căng, size, tốc độ cầu...) cho bạn an tâm lựa chọn</p>
+        </div>
+
+        <!-- Filter Controls Container -->
+        <div class="filter-controls-card">
+          <!-- 1. Brand Tabs -->
+          <div class="filter-group">
+            <span class="filter-label">Thương hiệu:</span>
+            <div class="brand-filter-tabs" id="brandFilterTabs" role="tablist">
+              <button class="brand-tab active" data-brand="all">Tất Cả Hãng</button>
+              <button class="brand-tab" data-brand="Yonex">Yonex</button>
+              <button class="brand-tab" data-brand="Victor">Victor</button>
+              <button class="brand-tab" data-brand="Lining">Li-Ning</button>
+              <button class="brand-tab" data-brand="Mizuno">Mizuno</button>
+            </div>
+          </div>
+
+          <!-- 2. Category Filter Pills & Sorter -->
+          <div class="filter-row-secondary">
+            <div class="category-pills" id="categoryFilterPills">
+              <button class="cat-pill active" data-category="all">Tất Cả Phụ Kiện</button>
+              <button class="cat-pill" data-category="vot">🏸 Vợt Cầu Lông</button>
+              <button class="cat-pill" data-category="cau">🪶 Quả & Ống Cầu</button>
+              <button class="cat-pill" data-category="quanao">👕 Quần Áo & Giày</button>
+              <button class="cat-pill" data-category="phukien">🎒 Cước, Quấn Cán & Túi</button>
+            </div>
+
+            <!-- Sort By Price / Popularity -->
+            <div class="sort-wrapper">
+              <label for="sortSelect">Sắp xếp:</label>
+              <select id="sortSelect" class="sort-select">
+                <option value="featured">Nổi bật nhất</option>
+                <option value="price-asc">Giá: Thấp đến Cao</option>
+                <option value="price-desc">Giá: Cao đến Thấp</option>
+                <option value="name-asc">Tên: A &rarr; Z</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Filter Indicator & Count Bar -->
+        <div class="filter-status-bar">
+          <span id="productResultCount">Đang hiển thị 12 sản phẩm</span>
+          <button id="resetFiltersBtn" class="reset-filter-btn" style="display: none;">
+            <span>Xóa bộ lọc</span> &times;
+          </button>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="product-grid" id="productGrid">
+          <!-- Dynamic Products populated by script.js with full attributes -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon">🏸</div>
+          <h3>Không tìm thấy sản phẩm phù hợp</h3>
+          <p>Hãy thử tìm với từ khóa khác hoặc chuyển bộ lọc về "Tất Cả Hãng".</p>
+          <button class="btn btn-primary" id="emptyResetBtn">Xem Tất Cả Sản Phẩm</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL STRINGER & RACQUET GUIDE SECTION -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <div class="services-wrapper">
+          <div class="services-info">
+            <span class="section-tag">Kỹ Thuật Chuyên Sâu</span>
+            <h2 class="services-title">Dịch Vụ Căng Cước Vợt Điện Tử Chuẩn BWF</h2>
+            <p class="services-desc">
+              Tại <strong>HND Badminton</strong>, chúng tôi sử dụng máy đan điện tử Victor / Yonex có độ chính xác từng 0.1 lbs. Kỹ thuật viên được đào tạo bài bản với phương pháp đan 4 nút không làm biến dạng khung vợt, bảo toàn tối đa tuổi thọ và độ nảy của dây cước.
+            </p>
+
+            <div class="guide-grid">
+              <div class="guide-card">
+                <div class="guide-badge red">Tấn Công (Power)</div>
+                <h4>Vợt Nặng Đầu (Head-heavy)</h4>
+                <p>Điểm cân bằng > 298mm. Thích hợp cho người chơi yêu thích smash uy lực, áp đảo sân sau.</p>
+                <small class="guide-spec">Gợi ý: Trọng lượng 3U/4U | Độ cứng Cứng</small>
+              </div>
+
+              <div class="guide-card">
+                <div class="guide-badge blue">Phản Tạt (Speed)</div>
+                <h4>Vợt Nhẹ Đầu (Head-light)</h4>
+                <p>Điểm cân bằng < 290mm. Cực kỳ linh hoạt trong các pha thủ cầu, gài lưới và chụp lưới phản công chớp nhoáng.</p>
+                <small class="guide-spec">Gợi ý: Trọng lượng 4U/5U | Đũa dẻo linh hoạt</small>
+              </div>
+
+              <div class="guide-card">
+                <div class="guide-badge green">Toàn Diện (All-around)</div>
+                <h4>Vợt Cân Bằng (Even-balance)</h4>
+                <p>Điểm cân bằng 290 - 295mm. Công thủ hài hòa, linh hoạt kiểm soát trận đấu và nhịp cầu biến hóa.</p>
+                <small class="guide-spec">Gợi ý: Dòng 4U | Thân dẻo trung bình</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS SECTION -->
+    <section class="reviews-section">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-tag">Đánh Giá Thực Tế</span>
+          <h2 class="section-title">Khách Hàng Nói Gì Về HND Badminton</h2>
+          <p class="section-sub">Hơn 10.000 lông thủ nghiệp dư và bán chuyên trên cả nước đã tin tưởng gửi gắm cây vợt của mình</p>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-comment">"Mình mua cây Astrox 88D Pro tại shop đan 11kg cước BG65Ti. Cầm đầm tay, smash tiếng nổ rất đanh. Đóng gói cẩn thận có ống carton bảo vệ."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">TH</div>
+              <div>
+                <strong>Trần Hoàng Long</strong>
+                <span>CLB Cầu Lông Cầu Giấy</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-comment">"Áo thể thao Yonex thun mè mặc rất mát, thấm hút mồ hôi cực nhanh khi đánh 3 set liền. Giao hàng về Hải Dương đúng 1 ngày là nhận được."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">NM</div>
+              <div>
+                <strong>Nguyễn Minh Tuấn</strong>
+                <span>Khách hàng thành viên</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-comment">"Shop tư vấn rất có tâm. Mình mới chơi được hướng dẫn chọn cây 4U thân trung bình đánh không bị mỏi cổ tay. Ống cầu Victor bay rất đầm và chuẩn quỹ đạo."</p>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar">LA</div>
+              <div>
+                <strong>Lê Phương Anh</strong>
+                <span>Học viên cầu lông phong trào</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / STORE LOCATION SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-box">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="section-tag">Ghé Thăm Showroom</span>
+            <h2>Trải Nghiệm Trực Tiếp Cùng HND Badminton</h2>
+            <p>Đến trực tiếp cửa hàng để được đo thông số cổ tay, thử vợt trên sân test và nhận tư vấn chuyên môn từ các huấn luyện viên.</p>
+
+            <ul class="contact-details">
+              <li>
+                <div class="icon-circle">📍</div>
+                <div>
+                  <strong>Showroom Hà Nội:</strong>
+                  <span>Số 182 Lê Thanh Nghị, Quận Hai Bà Trưng, Hà Nội</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon-circle">📞</div>
+                <div>
+                  <strong>Tổng đài tư vấn & đặt hàng:</strong>
+                  <span>0988.123.456 - 024.3868.9999 (8:00 - 22:00)</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon-circle">✉️</div>
+                <div>
+                  <strong>Email hỗ trợ:</strong>
+                  <span>contact@hndbadminton.vn</span>
+                </div>
+              </li>
+              <li>
+                <div class="icon-circle">⏰</div>
+                <div>
+                  <strong>Giờ mở cửa:</strong>
+                  <span>08:00 - 22:00 (Tất cả các ngày trong tuần, kể cả lễ Tết)</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-form-wrapper">
+            <h3>Nhận Tư Vấn Chọn Vợt Miễn Phí</h3>
+            <p>Để lại thông tin, chuyên viên vợt sẽ liên hệ tư vấn cây vợt hợp với lối đánh của bạn nhất trong 15 phút.</p>
+            <form id="consultForm" class="consult-form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn! Chuyên viên HND Badminton sẽ gọi lại trong ít phút.');">
+              <div class="form-group">
+                <label for="custName">Họ và tên của bạn</label>
+                <input type="text" id="custName" placeholder="Ví dụ: Nguyễn Văn An" required>
+              </div>
+              <div class="form-group">
+                <label for="custPhone">Số điện thoại Zalo</label>
+                <input type="tel" id="custPhone" placeholder="Ví dụ: 0988xxxxxx" required>
+              </div>
+              <div class="form-group">
+                <label for="custPlayStyle">Lối chơi cầu lông của bạn</label>
+                <select id="custPlayStyle">
+                  <option value="attack">Thiên công - Thích đập cầu uy lực</option>
+                  <option value="control">Công thủ toàn diện - Thích kiểm soát trận đấu</option>
+                  <option value="defense">Phản tạt gài lưới - Đánh đôi tốc độ</option>
+                  <option value="beginner">Mới chơi - Cần cây vợt trợ lực dễ thuần</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">Gửi Yêu Cầu Tư Vấn Ngay</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="brand-logo footer-logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="7" r="5"></circle>
+              <path d="M12 12v10"></path>
+              <path d="M9 19h6"></path>
+            </svg>
+          </div>
+          <span class="logo-title">HND <span>BADMINTON</span></span>
+        </div>
+        <p class="footer-desc">
+          Hệ thống phân phối dụng cụ, phụ kiện cầu lông chính hãng hàng đầu Việt Nam. Cam kết uy tín, chất lượng và dịch vụ bảo hành chu đáo nhất cho cộng đồng lông thủ.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="Facebook">Facebook</a>
+          <a href="#" class="social-btn" aria-label="TikTok">TikTok</a>
+          <a href="#" class="social-btn" aria-label="YouTube">YouTube</a>
+          <a href="#" class="social-btn" aria-label="Zalo">Zalo OA</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Danh Mục Sản Phẩm</h4>
+        <ul class="footer-links">
+          <li><a href="#products">Vợt cầu lông Yonex</a></li>
+          <li><a href="#products">Vợt cầu lông Victor</a></li>
+          <li><a href="#products">Vợt cầu lông Li-Ning</a></li>
+          <li><a href="#products">Vợt cầu lông Mizuno</a></li>
+          <li><a href="#products">Quần áo cầu lông thoáng khí</a></li>
+          <li><a href="#products">Ống quả cầu lông thi đấu</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Chính Sách & Hỗ Trợ</h4>
+        <ul class="footer-links">
+          <li><a href="#">Chính sách bảo hành vợt gãy</a></li>
+          <li><a href="#">Chính sách đổi trả trong 7 ngày</a></li>
+          <li><a href="#">Phương thức thanh toán & Ship COD</a></li>
+          <li><a href="#">Bảng giá căng cước điện tử</a></li>
+          <li><a href="#">Hướng dẫn chọn vợt theo lực cổ tay</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Thanh Toán & Chứng Nhận</h4>
+        <p class="text-muted">Chấp nhận thanh toán linh hoạt:</p>
+        <div class="payment-badges">
+          <span class="pay-badge">Chuyển khoản QR</span>
+          <span class="pay-badge">Visa / Master</span>
+          <span class="pay-badge">Ship COD</span>
+          <span class="pay-badge">Ví MoMo / VNPAY</span>
+        </div>
+        <div class="authentic-guarantee">
+          <span class="badge-verify">✓ Đại Lý Phân Phối Chính Hãng</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container bottom-inner">
+        <p>© 2026 HND Badminton. Toàn bộ bản quyền thuộc về cửa hàng HND Badminton.</p>
+        <p>Thiết kế Responsive chuẩn Desktop & Mobile</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRODUCT QUICK VIEW MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Đóng">&times;</button>
+      
+      <div class="modal-body" id="modalContent">
+        <!-- Content will be injected by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
